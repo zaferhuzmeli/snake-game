@@ -20,3 +20,29 @@ snake[0] ={
 }
 
 //Create food
+let food = {
+    x : Math.floor(Math.random()*17+1) * box,
+    y : Math.floor(Math.random()*15+3) * box
+}
+
+// Create Score
+
+let Score = 0;
+
+// Drawing eveything
+
+function draw() {
+    cntx.drawImage(ground,0,0);
+
+    for(let i=0;i < snake.length; i++){
+        cntx.fillStyle = (i == 0)? "green" : "white";
+        cntx.fillRect(snake[i].x,snake[i].y,box,box);
+
+        cntx.strokeStyle = (i == 0)? "green" : "white";
+        cntx.fillRect(snake[i].x,snake[i].y,box,box);
+    }
+}
+
+// Call draw function every 100 ms
+
+let game = setInterval(draw,100);
